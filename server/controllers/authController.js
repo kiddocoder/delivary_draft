@@ -1,6 +1,6 @@
 // authController.js;
 import { hash, compare } from 'bcryptjs';
-import { sign } from 'jsonwebtoken';
+import { jwt } from 'jsonwebtoken';
 import User, { findOne } from '../models/User';
 
 const register = async (req, res) => {
@@ -47,7 +47,7 @@ const login = async (req, res) => {
     }
 
     // Generate JWT token
-    const token = sign({ userId: user._id }, process.env.JWT_SECRET);
+    const token = jwt({ userId: user._id }, process.env.JWT_SECRET);
 
     res.status(200).json({ token });
   } catch (error) {
