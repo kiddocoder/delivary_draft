@@ -1,5 +1,6 @@
-// orderController.js
-const { GPT } = require('gpt-2-cloud');
+// orderController.js;
+
+import { GPT } from 'gpt-2-cloud';
 
 const trackDelivery = async (req, res) => {
   try {
