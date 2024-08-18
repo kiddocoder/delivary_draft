@@ -1,20 +1,20 @@
-// authController.js
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-const User = require('../models/User');
+// authController.js;
+import { hash, compare } from 'bcryptjs';
+import { sign } from 'jsonwebtoken';
+import User, { findOne } from '../models/User';
 
 const register = async (req, res) => {
   try {
     const { username, password } = req.body;
 
     // Check if user already exists
-    let user = await User.findOne({ username });
+    let user = await findOne({ username });
     if (user) {
       return res.status(400).json({ message: 'User already exists' });
     }
 
     // Hash password
-    const hashedPassword = await bcrypt.hash(password, 10);
+    const hashedPassword = await hash(password, 10);
 
     // Create new user
     user = new User({
@@ -35,19 +35,19 @@ const login = async (req, res) => {
     const { username, password } = req.body;
 
     // Check if user exists
-    const user = await User.findOne({ username });
+    const user = await findOne({ username });
     if (!user) {
       return res.status(404).json({ message: 'User not found' });
     }
 
     // Validate password
-    const validPassword = await bcrypt.compare(password, user.password);
+    const validPassword = await compare(password, user.password);
     if (!validPassword) {
       return res.status(401).json({ message: 'Invalid credentials' });
     }
 
     // Generate JWT token
-    const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET);
+    const token = sign({ userId: user._id }, process.env.JWT_SECRET);
 
     res.status(200).json({ token });
   } catch (error) {
@@ -73,7 +73,7 @@ const createSubscription = async (req, res) => {
   }
 };
 
-module.exports = {
+export default {
   register,
   login,
   createSubscription
