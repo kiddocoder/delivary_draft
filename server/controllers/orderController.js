@@ -1,6 +1,7 @@
 // orderController.js;
 
 import { GPT } from 'gpt-2-cloud';
+dotenv.config().require('dotenv');
 
 const trackDelivery = async (req, res) => {
   try {
