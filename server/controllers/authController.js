@@ -16,7 +16,7 @@ const register = async (req, res) => {
     // Hash password;
     const hashedPassword = await hash(password, 10);
 
-    // Create new user
+    // Create new user;
     user = new User({
       username,
       password: hashedPassword,
