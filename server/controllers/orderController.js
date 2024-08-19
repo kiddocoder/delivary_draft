@@ -5,7 +5,7 @@ dotenv.config().require('dotenv');
 
 const trackDelivery = async (req, res) => {
   try {
-    // Fetch delivery details from database
+    // Fetch delivery details from database;
     const deliveryDetails = await Delivery.findById(req.params.deliveryId);
 
     // Generate delivery update using GPT-2
