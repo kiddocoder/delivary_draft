@@ -1,4 +1,4 @@
-// NotificationComponent.js
+// NotificationComponent.js;
 
 import React, { useEffect, useState } from 'react';
 import WebSocket from 'ws';
