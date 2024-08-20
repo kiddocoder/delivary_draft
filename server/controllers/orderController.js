@@ -10,7 +10,7 @@ const trackDelivery = async (req, res) => {
 
     // Generate delivery update using GPT-2;
     const gpt = new GPT({
-      apiKey: process.env.GPT_API_KEY, // Replace with your GPT-2 API key
+      apiKey: process.env.GPT_API_KEY, // GPT-2 API key
       models: 'gpt-2',
     });
 
