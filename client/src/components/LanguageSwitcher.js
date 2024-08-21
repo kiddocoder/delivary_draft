@@ -5,7 +5,7 @@ import { supportedLanguages } from './config';
 
 const LanguageSwitcher = () => {
   const handleChangeLanguage = (language) => {
-    // Logique pour changer la langue dans l'application
+    // Logique pour changer la langue dans l'application;
     // Peut-être stocker la langue sélectionnée dans le state ou les cookies
   };
 
