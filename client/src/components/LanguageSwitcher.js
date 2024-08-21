@@ -1,4 +1,4 @@
-// LanguageSwitcher.js
+// LanguageSwitcher.js;
 
 import React from 'react';
 import { supportedLanguages } from './config';
