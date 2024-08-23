@@ -8,7 +8,7 @@ const trackDelivery = async (req, res) => {
     // Fetch delivery details from database;
     const deliveryDetails = await Delivery.findById(req.params.deliveryId);
 
-    // Generate delivery update using GPT-2
+    // Generate delivery update using GPT-2;
     const gpt = new GPT({
       apiKey: process.env.GPT_API_KEY, // GPT-2 API key
       models: 'gpt-2',
