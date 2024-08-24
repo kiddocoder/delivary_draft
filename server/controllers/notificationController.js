@@ -12,7 +12,7 @@ const sendNotification = (message) => {
   });
 };
 
-// Notification pour une mise à jour de livraison;
+// Notification pour une mise à jour de livraison
 const notifyDeliveryUpdate = (deliveryId, message) => {
   sendNotification({ type: 'delivery-update', deliveryId, message });
 };
