@@ -1,12 +1,12 @@
 // notificationController.js;
 
-const WebSocket = require('ws');
-const wss = new WebSocket.Server({ port: 8080 });
+import { Server, OPEN } from 'ws';
+const wss = new Server({ port: 8080 });
 
 // Fonction pour envoyer des notifications
 const sendNotification = (message) => {
   wss.clients.forEach((client) => {
-    if (client.readyState === WebSocket.OPEN) {
+    if (client.readyState === OPEN) {
       client.send(JSON.stringify(message));
     }
   });
@@ -17,4 +17,4 @@ const notifyDeliveryUpdate = (deliveryId, message) => {
   sendNotification({ type: 'delivery-update', deliveryId, message });
 };
 
-module.exports = { notifyDeliveryUpdate };
+export default { notifyDeliveryUpdate };
